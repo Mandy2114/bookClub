@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Club</title>
+  <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+  <script src="/js/createClub.js" defer></script>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Create Club</h1>
+
+  <form action="/clubs" method="POST">
+    
+    <label for="name">Name of Club:</label>
+    <input type="text" name="name" id="name">
+    
+    <label for="Location">Location:</label>
+    <input type="text" name="meetingLocation" id="Location">
+
+    <label for="description">Notes:</label>
+    <input name="description" id="description"></input>
+    
+    <input type="hidden" name="book" id="bookTag">
+
+    <button type="submit">Add Club</button>
+   </form>
+   
+   <div class="books-container">
+    <% books.length && books.forEach((book) => { %>
+      <div class="books" data-bookid="<%= book._id %>">
+        <img src="<%= book.image %>" alt="<%= book.title %>" data-bookid="<%= book._id %>">
+        <h1 data-bookid="<%= book._id %>"><%= book.title %></h1>
+      </div>
+    <% }) %>
+   </div>
+</body>
+</html>

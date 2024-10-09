@@ -5,9 +5,14 @@ const clubSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  users: {
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  members: {
     type: [mongoose.Schema.Types.ObjectId],
-    ref: "User"
+    ref: "User",
+    default: [],
   },
   book: {
     type: mongoose.Schema.Types.ObjectId,

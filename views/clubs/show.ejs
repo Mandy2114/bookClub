@@ -3,10 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Show Page</title>
+  <link rel="stylesheet" href="/css/show.css">
+  <script src="/js/showClub.js" defer></script>
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  Show page
+  <div id="club-container">
+      <div id="sidebar-container">
+        <div id="club-sidebar">
+          <p>My Clubs: </p>
+          <% userClubs.length && userClubs.forEach((userClub) => { %>
+            <div>
+              <img src="<%= userClub.book.image %>" alt="<%= userClub.book.title %>" class="club-images" data-clubid="<%= userClub._id %>">
+              <p><%= userClub.name %></p>
+            </div>
+          <% }) %>
+        </div>
+        <div id="club-member-sidebar">
+          <p>Club Member: </p>
+          <% memberClubs.length && memberClubs.forEach((memberClub) => { %>
+            <div>
+              <img src="<%= memberClub.book.image %>" alt="<%= memberClub.book.title %>" class="club-images" data-clubid="<%= memberClub._id %>">
+              <p><%= memberClub.name %></p>
+            </div>
+          <% }) %>
+        </div>
+        <% if(club?.owner?._id.toString() === user._id){ %>
+          <div class="bottom-show-section">
+            <a href="/clubs/<%= club._id %>/edit">
+              <button>Edit Club</button>
+            </a>
+            <a href="/clubs/create">
+              <button>Create Club</button>
+            </a>
+            <form action="/clubs/<%= club._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        <% } %>
+      </div>
+
+    <% if (club.book) { %>
+      <div id="club-main">
+        <h1><%= club.name %></h1>
+        <h2><%= club.book.title %></h2>
+        <div>
+          <img src="<%= club.book.image %>" alt="<%= club.book.title %>">
+          <p><%= club.book.description %></p>
+        </div>
+        <div>
+          <p>Members: </p>
+          <% club.members.forEach(member => { %>
+            <img src="<%= member.profileImg %>" alt="<%= member.username %>">
+          <% }) %>
+        </div>
+        <% if (!isOwnerOrMember) { %>
+          <form action="/clubs/<%= club._id %>/join?_method=PUT" method="POST">
+            <button type="submit">Join Club</button>
+          </form>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
 </body>
 </html>

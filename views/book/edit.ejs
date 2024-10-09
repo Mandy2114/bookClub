@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="/css/show.css"> -->
+</head>
+<body>
+  <h1>Edit Book</h1>
+  <form action="/books/<%= book._id %>/edit/?_method=PUT" method="POST">
+    <label for="img">image:</label>
+    <input type="text" name="image" id="img" value="<%= book.image %>">
+    <img src="<%= book.image %>" alt="Pic of book title">
+
+    <label for="Author">Author:</label>
+    <input type="text" name="author" id="Author" value="<%= book.author %>">
+
+    <label for="DatePublisted"><%= book.datePublished %></label>
+    <input type="text" id="DatePublisted" name="datePublisted">
+
+    <label for="Description">Description</label>
+    <input type="text" id="Description" name="description"  value="<%= book.description %>">
+
+    <label for="Title">Title: </label>
+    <input type="text" id="Title" name="title" value="<%= book.title %>">
+
+    <label for="Pages">Pages: </label>
+    <input type="number" id="Pages" name="pages" value="<%= book.pages %>">
+
+    <button type="submit">Update</button>
+  </form>
+</body>
+</html>

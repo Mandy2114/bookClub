@@ -1,14 +1,12 @@
-<nav>
-  <p>
-    <a href="/">Home</a>
-  </p>
+<nav id="main-bar">
   <% if (user) { %>
-  <p>
+    <h3>Welcome, <%= user.username %></h3>
+    <a href="/">Home</a>
+    <a href="/clubs">Clubs</a>
+    <a href="/books">Library</a>
     <a href="/auth/sign-out">Sign out</a>
-  </p>
-  <% } else { %>
-  <p>
+    <% } else { %>
+    <a href="/">Home</a>
     <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>.
-  </p>
   <% } %>
 </nav>
