@@ -70,6 +70,29 @@ div#club-main {
   align-items: stretch;
 }
 
+div#Library-title{
+  text-align: center;
+}
+
+div#Page-title{
+  text-align: center;
+}
+
+.book-Img{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 3px;
+  margin: 14px;
+  overflow-y: scroll;
+}
+.book-Img img {
+  width: 260px;
+  height: auto;
+  margin: 5px;
+}
+
 .bottom-show-section {
   padding: 15px;
   width: 100%;

@@ -1,19 +1,15 @@
 # Book Club
-<body>
-  <%- include('../partials/_navbar.ejs') %>
-  <div>
-    <p>Recipe: <%= recipe.name %></p>
-    <br />
-    <p>Instructions: <%= recipe.instructions %></p>
-    <br />
-    <p>Ingredients:</p>
-    <% recipe.ingredients.forEach((ingredient) => { %> <%= ingredient.name %>
-    <% })%>
-  </div>
-  <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Recipe</button>
-  </form>
-  <a href="/recipes/<%= recipe._id %>/edit">
-    <button>Edit Recipe</button>
-  </a>
-</body>
+ 
+The project that i've come up with alow you to make a book club. with this you abole to create, edit, and delete a club. one of my goals is to alow to delete a book from the libary.
+The simple part of this is the veiws. The complex part was the logic and keeping up with which route was asscociated with which view between clubs and book.
+The main operating part of this project was my models and controllers.
+The most difficult was my css.
+If i could do this over i would brake down my css code more to figure out how to make it better.
+
+
+
+
+
+
+
+

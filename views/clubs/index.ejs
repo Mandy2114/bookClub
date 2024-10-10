@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- <link rel="stylesheet" href="/css/show.css"> -->
+  <title>List of Clubs</title>
+  <link rel="stylesheet" href="/css/show.css">
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  List of Clubs
+  <div id="Page-title">
+    <h1>List of Clubs</h1> 
+  </div>
   <a href="/clubs/create">Add a club to the your page!</a>
   <% clubs.forEach((club) => { %>
     <a href="/clubs/<%= club._id %>">

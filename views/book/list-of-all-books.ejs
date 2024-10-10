@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- <link rel="stylesheet" href="/css/show.css"> -->
+  <title>List of books</title>
+  <link rel="stylesheet" href="/css/show.css">
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  List of books page
+  <div id="Library-title">
+    <h1>List of books</h1> 
+  </div>
   <a href="/books/create">Add a book to the Library!</a>
   <% books.forEach((book) => { %>
-    <div>
+    <div class="book-Img">
       <img src="<%= book.image %>" alt="<%= book.title %>">
       <h1><%= book.title %></h1>
     </div>
